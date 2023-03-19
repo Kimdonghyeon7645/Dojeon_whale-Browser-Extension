@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "button-demo",
+    "description": "툴바 버튼 예제",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup/index.html",
+        "default_title": "툴팁을 하면 나오는 텍스트",
+        "default_icon": {
+            "16": "icon/unnamed.ico",
+            "32": "icon/unnamed.ico",
+            "64": "icon/unnamed.ico"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
