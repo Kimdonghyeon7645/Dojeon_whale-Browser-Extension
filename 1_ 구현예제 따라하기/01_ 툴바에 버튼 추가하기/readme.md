@@ -2,7 +2,7 @@
 > 참고문서는 매니페스트 v2 기준으로 정리되어 있어 v2, v3 같이 정리함 (사용할땐 v3으로, v2는 사용불가)
 
 ## 1. 액션 API (v2에서의 브라우저 액션&페이지 액션)
-오른쪽 상단에 아이콘 뜨는 확장앱 유형은 v2 기준 2가지가 있음 = [*브라우저 액션 (Browser action)*](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_actions) + [*페이지 액션 (Page action)*](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)  
+오른쪽 상단에 아이콘 뜨는 확장앱 유형은 v2 기준 2가지가 있음 = [**브라우저 액션 (Browser action)**](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_actions) + [**페이지 액션 (Page action)**](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)  
 (브라우저액션=모든페이지용 vs 페이지액션=특정페이지용)  
 -> v3은 이제 Action 1가지로 보면됨
 
@@ -10,7 +10,7 @@
 - 팝업이 없는 경우 : 클릭 이벤트가 발생, 백그라운드(js)에 이벤트 핸들러로 후처리
 - 팝업이 있는 경우 : 해당 팝업 표시(html, css, js 로 구현된 페이지)
 
-### 2. 액션 API 기본 뼈대
+## 2. 액션 API 기본 뼈대
 ```js
 {
     "manifest_version": 3,  // 이젠 2 안씀
