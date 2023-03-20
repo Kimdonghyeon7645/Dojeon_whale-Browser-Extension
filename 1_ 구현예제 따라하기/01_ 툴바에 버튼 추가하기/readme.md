@@ -31,6 +31,25 @@
 ```
 
 ## 3. 액션 API - 팝업이 없는 경우 (백그라운드)
+**"action"** 프로퍼티의 동생위치에 아래 내용 추가
+```js
+"background": {
+    "service_worker": "background.js"
+//   "scripts": ["background.js"]   // v2 문법
+}
+```
+
+실제 추가해준 파일명대로, 백그라운드 소스(background.js)도 추가  
+-> 이걸 ['서비스 워커'](https://developer.mozilla.org/ko/docs/Web/API/Service_Worker_API) 라고 함
+```js
+whale.browserAction.onClicked.addListener(() => {
+    whale.tabs.create({
+        url: `http://news.naver.com/`
+    });
+})
+```
+
+## 4. 액션 API - 팝업이 있는 경우 (팝업)
 **"action"** 프로퍼티의 자식위치에 아래 내용 추가
 ```js
 // 경로는 manifest.js가 있는 루트경로 기준 상대경로로 작성
@@ -55,26 +74,6 @@
 ```
 ```js
 document.getElementById("news_link").addEventListener("click", () => {
-    whale.tabs.create({
-        url: `http://news.naver.com/`
-    });
-})
-```
-
-
-## 4. 액션 API - 팝업이 있는 경우 (팝업)
-**"action"** 프로퍼티의 동생위치에 아래 내용 추가
-```js
-"background": {
-    "service_worker": "background.js"
-//   "scripts": ["background.js"]   // v2 문법
-}
-```
-
-실제 추가해준 파일명대로, 백그라운드 소스(background.js)도 추가  
--> 이걸 ['서비스 워커'](https://developer.mozilla.org/ko/docs/Web/API/Service_Worker_API) 라고 함
-```js
-whale.browserAction.onClicked.addListener(() => {
     whale.tabs.create({
         url: `http://news.naver.com/`
     });
