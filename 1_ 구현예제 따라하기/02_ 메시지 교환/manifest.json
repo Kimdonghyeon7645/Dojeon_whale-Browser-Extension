@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "message-passing-demo",
+    "description": "메시지 교환 예제",
+    "version": "1.0",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "matches": ["*://*/*"],
+          "js": ["contentscript.js"]
+        }
+    ]
+}
