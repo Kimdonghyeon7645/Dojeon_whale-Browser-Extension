@@ -23,7 +23,7 @@
 메시지 교환하려는 양쪽에 각각 아래 함수를 사용
 - runtime.**sendMessage** : 보내고 회신받는 쪽
 - runtime.**onMessage** : 받고 회신주는 쪽
--
+
 ```js
 // contentscript.js (보내고 회신받는 쪽 - sendMessage)
 for (let i = 0; i < 10; i++) {
@@ -48,3 +48,38 @@ whale.runtime.onMessage.addListener((message, sender, sendResponse) => {
 - (참고2) onMessage(받고 회신주는 쪽)에서 회신주는 걸(`sendResponse()`) 비동기적으로 하려면, onMessage 핸들러 함수가 명시적으로 true 를 반환해야 한다. (그러지 않으면 `sendResponse()` 함수가 자동으로 실행되어 의도한 비동기처리를 못함)
 
 
+## 4. 메시지 교환 (지속가능한 연결)
+`runtime.connect()` API로 포트(양쪽 간의 채널)를 생성하는 방식을 사용
+- 연결 시작하는 쪽 : `runtime.connect({name: "포트명"})` 으로 포트(채널) 생성
+- 연결 받는 쪽 : `runtime.onConnect`으로 포트 생성 이벤트를 핸들링
+
+포트(채널)이 생성됐으면 메시지 교환은 양쪽 모두 같은 함수를 사용
+- 메시지 보낼때 : `port.onMessage`
+- 메시지 받을때 : `port.postMessage`
+
+```js
+// contentscript.js (연결 시작하는 쪽 - runtime.connect)
+const port = whale.runtime.connect({name: `greetings`});
+
+port.onMessage.addListener(message => { // 메시지 받을때 (port.postMessage)
+    console.log(message);   
+});
+
+for (let i = 0; i < 100; i++) {
+    console.log(`How are you?`)
+    port.postMessage(`How are you?`);   // 메시지 보낼때 (port.onMessage)
+}
+```
+
+```js
+// background.js (연결 받는 쪽 - runtime.onConnect)
+whale.runtime.onConnect.addListener(port => {
+    if (port.name === `greetings`) {
+        port.onMessage.addListener(message => { // 메시지 받을때 (port.postMessage)
+            if (message === `How are you?`) {
+                port.postMessage(`I'm fine thank you and you?`);    // 메시지 보낼때 (port.onMessage)
+            }
+        });
+    }
+});
+```
