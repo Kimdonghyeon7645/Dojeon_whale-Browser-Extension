@@ -7,8 +7,8 @@
         "default_popup": "popup/index.html",
         "default_title": "툴팁을 하면 나오는 텍스트",
         "default_icon": {
-            "16": "icon/page-16.png",
-            "32": "icon/page-32.png"
+            "16": "icon/icons8-bookmark-16.png",
+            "32": "icon/icons8-bookmark-32.png"
         }
     },
     "background": {
