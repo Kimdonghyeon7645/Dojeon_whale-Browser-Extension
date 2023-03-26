@@ -82,3 +82,8 @@ whale.runtime.onConnect.addListener(port => {
     }
 });
 ```
+
+## 5. 더보기
+
+- [확장앱 외부와 메시지 교환하는 법](https://developers.whale.naver.com/tutorials/messagePassing/#확장앱-외부)
+- [스토리지에 메시지 담아 교환하는 법](https://developers.whale.naver.com/tutorials/messagePassing/#스토리지-API-활용)
