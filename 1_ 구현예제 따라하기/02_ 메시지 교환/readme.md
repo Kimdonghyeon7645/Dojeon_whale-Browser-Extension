@@ -59,26 +59,25 @@ whale.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 ```js
 // contentscript.js (연결 시작하는 쪽 - runtime.connect)
-const port = whale.runtime.connect({name: `greetings`});
+const port = whale.runtime.connect({name: `ppap`});
 
 port.onMessage.addListener(message => { // 메시지 받을때 (port.postMessage)
-    console.log(message);   
+    console.log(`>> [contentscript.js] receive : ${message}`);
 });
 
-for (let i = 0; i < 100; i++) {
-    console.log(`How are you?`)
-    port.postMessage(`How are you?`);   // 메시지 보낼때 (port.onMessage)
+for (let i = 0; i < 10; i++) {
+    let message = i;
+    console.log(`>> [contentscript.js] send : ${message}`);
+    port.postMessage(message);   // 메시지 보낼때 (port.onMessage)
 }
 ```
 
 ```js
 // background.js (연결 받는 쪽 - runtime.onConnect)
 whale.runtime.onConnect.addListener(port => {
-    if (port.name === `greetings`) {
+    if (port.name === `ppap`) {
         port.onMessage.addListener(message => { // 메시지 받을때 (port.postMessage)
-            if (message === `How are you?`) {
-                port.postMessage(`I'm fine thank you and you?`);    // 메시지 보낼때 (port.onMessage)
-            }
+            port.postMessage(`'receive ${message}, send ${message*2}'`);    // 메시지 보낼때 (port.onMessage)
         });
     }
 });
