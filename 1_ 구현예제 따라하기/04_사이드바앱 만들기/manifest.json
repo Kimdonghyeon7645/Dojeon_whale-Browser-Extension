@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "sidebar-app-demo",
+    "description": "사이드바 앱",
+    "version": "1.0",
+    "sidebar_action": {
+        "default_page": "sidebar.html",
+        "default_icon": {
+            "16": "icons8-bookmark-16.png"
+        },
+    
+        "default_title": "사이드바앱",
+        "use_navigation_bar": true 
+    }
+}
