@@ -5,6 +5,8 @@
 1. **메타 정보** : 현재 재생중인 오디오·비디오의 자세한 정보 확인 가능
 2. **재생 상태 제어** : (미디어 키 입력 or 전역 미디어 제어 UI의 버튼)으로 입력하는 미디어 제어 동작(재생, 정지, 이전곡, 다음곡 등)에 대한 핸들러를 정의 가능
 
-## 1. 메타 정보
-- GMC UI : 해당 페이지의 도메인(호스트명)과 제목, 기본적인 재생/정지 버튼이 제공
+## *참고! · 미디어 세션 API 예제 재현이 안되므로 잠정 패스...
 
+- https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API
+- https://googlechrome.github.io/samples/media-session/slides.html
+- https://googlechrome.github.io/samples/media-session/
