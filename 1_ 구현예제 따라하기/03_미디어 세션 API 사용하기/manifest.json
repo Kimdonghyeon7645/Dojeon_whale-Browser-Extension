@@ -1,15 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "message-passing-demo",
-    "description": "메시지 교환 예제",
+    "name": "media-session-api",
+    "description": "미디어 세션 API 사용하기",
     "version": "1.0",
     "background": {
         "service_worker": "background.js"
-    },
-    "content_scripts": [
-        {
-          "matches": ["*://*/*"],
-          "js": ["contentscript.js"]
-        }
-    ]
+    }
 }
