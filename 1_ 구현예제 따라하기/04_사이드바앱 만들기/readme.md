@@ -23,3 +23,25 @@
 1. `whale.sidebarAction.onClicked.addListener(res => {})` : `result.opened` 으로 사이드바 열렸는지 여부 확인
 2. `document.addEventListener('visibilitychange', () => {}` : `document.visibilityState === 'visible'` 으로 사이드바 열렸는지 여부 확인
 
+
+## 3. 탐색바(navigation_bar)
+manifest.json에서 `use_navigation_bar` 속성값(boolean)에 따라 탐색바 표시 여부 적용
+- SPA(단일페이지앱)에선 탐색바가 필요없어도, 사이드바 내에서 URL 이동시 이전URL로 돌아갈 방법이 탐색바밖에 없음
+
+
+## 4. 버튼 툴팁
+- 기본값 : `default_title`
+- 동적으로 변경하고 싶으면 `whale.sidebarAction.setTitle({title: '새로운제목'})` 사용
+
+
+## 5. 버튼 뱃지
+아이콘 위에 뱃지를 표시 가능(새 알림, 업데이트 표현때 사용)
+- `whale.sidebarAction.setBadgeText()` : 뱃지에 표시될 문자열 변경
+- `whale.sidebarAction.setBadgeBackgroundColor()` : 뱃지의 배경색상 변경
+```js
+whale.sidebarAction.setBadgeText({ text: `5` });
+
+whale.sidebarAction.setBadgeBackgroundColor({
+    color: `#ff0000`  //  RGBA 색상값 배열([255, 0, 0, 255]) 혹은 HEX 색상 표현 문자열(#FF0000).
+});
+```
