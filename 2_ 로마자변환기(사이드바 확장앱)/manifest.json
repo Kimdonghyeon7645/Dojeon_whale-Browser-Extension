@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "roman_converter",
+    "description": "로마자 변환 확장앱",
+    "version": "1.0",
+    "sidebar_action": {
+        "default_page": "index.html",
+        "default_icon": {
+            "16": "romaja-64.png",
+            "32": "romaja-64.png",
+            "64": "romaja-64.png",
+            "128": "romaja-128.png"
+        },
+    
+        "default_title": "로마자 변환",
+        "use_navigation_bar": true
+    }
+}
